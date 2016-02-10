@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}What movie to watch{% endblock %}</title>
+        {% block stylesheets %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+             {% stylesheets 'bundles/movie/css/*' filter='cssrewrite'   %}
+              <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+            {% endstylesheets %}
+            <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+
+
+
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/movie/images/footer.jpg') }}" />
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <a href="{{ path('movie_homepage') }}"><img src="{{ asset('bundles/movie/images/header.jpg') }}" ></a>
+            </div>
+
+
+            <div id="wrapper">
+            {% block body %}{% endblock %}
+        </div>
+
+    </div>
+    <div id="footer">
+        {% block footer %} 
+            
+            <div class="logo">
+                <img src="{{ asset('bundles/movie/images/footer.jpg') }}" />
+            </div>
+            <div class="inf">
+                <p><a href="{{ path('movie_addMovie') }}">Login</a></p>
+                <p><a href="{{ path('movie_about')}}">About</a></p>
+            </div>
+    
+        {% endblock %}
+    </div>
+
+    {% block javascripts %}
+        <script src="{{ asset('bundles/movie/js/embedForm.js') }}"></script>
+        <script src="{{asset('bundles/movie/js/category.js') }}"></script>
+    {% endblock %}
+
+</body>
+</html>

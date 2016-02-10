@@ -1,0 +1,131 @@
+{# empty Twig template #}
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="head">
+        <div class="wellKnown">
+            <img src="{{ asset('bundles/movie/images/well-known.jpg') }}">
+        </div>
+        <div class="Moderate">
+            <img src="{{ asset('bundles/movie/images/common.jpg') }}">
+        </div>
+        <div class="Unknown">
+            <img src="{{ asset('bundles/movie/images/inglorious.jpg') }}">
+        </div>
+    </div>
+    <div id="pagination-preview">
+        {% if page == 1%}
+
+        {% elseif  page != 1 and totalPages > 0 %}
+            <a  href="{{ path('movie_category', {'page': page-1}) }}"><img src="{{asset('bundles/movie/images/pagination-preview.jpg')  }}"></a> 
+            {% endif %}
+    </div>
+    <div id="pagination-next">
+        {% if page == totalPages %}
+
+        {% else  %}
+            <a href="{{ path('movie_category', {'page': page+1}) }}"><img src="{{ asset('bundles/movie/images/pagination-next.jpg') }}"></a>
+
+        {% endif %}
+    </div>
+    <div id="result-wellKnown">
+        <div class="known">
+            <h3>Well-Known</h3>
+        </div>
+        {%set foo = 0%}
+        {% for value in category %}
+            {% if value.wellKnown == "well-known" %}
+                {%set foo=  foo + 1%}
+                <div class="box">
+                    <div class='box-title'>
+                        <a href="{{path('movie_movie', {'id': value.id, 'slug': value.title })}}"> {{  value.title }} ({{ value.year }}) </a>
+                    </div>
+
+                    <div class="image">
+                    
+                        <a href="{{path('movie_movie', {'id': value.id, 'slug': value.title}) }}"><img src="{{ asset(['uploads/images/Movies/', value.path]|join) }}" height="150" width="225" /></a>
+                    </div>
+                    <div class='box-review'>
+                        <p class="box-country-text">{{ value.country }}</p>
+                        <p class="box-review-text">{{ value.review | truncate(200) }}</p>
+                    </div>
+
+
+                </div>
+
+
+            {% endif %}
+        {%  endfor %}
+
+        {% if foo == 0%}
+            <h3>NO more movies</h3>
+        {%endif%}
+    </div>
+
+    <div id="result-moderate">
+        <div class="known">
+            <h3>Common</h3>
+        </div>
+        {%set foo2 = 0%}
+        {% for value in category %}
+
+            {% if value.wellKnown == "Common" %}  
+                {%set foo2=  foo2 + 1%}
+                <div class="box">
+                    <div class='box-title'>
+                        <a href="{{path('movie_movie', {'id': value.id, 'slug': value.title})}}"> {{  value.title }} ({{ value.year }}) </a>
+                    </div>
+                    <div class='box-image'>
+                        <a href="{{path('movie_movie', {'id': value.id,  'slug': value.title}) }}"><img src="{{ asset(['uploads/images/Movies', value.path]|join) }}" height="150" width="225" /></a>
+                    </div>
+                    <div class='box-review'>
+                        <p class="box-country-text">{{ value.country }}</p>
+                        <p class="box-review-text">{{ value.review | truncate(200) }}</p>
+                    </div>                
+                </div>  
+
+            {% endif %}
+
+
+
+        {%  endfor %}
+        {% if foo2 == 0%}
+            <h3>NO more movies</h3>
+        {%endif%}
+    </div>
+
+
+    <div id="result-unknown">
+        <div class="known">
+            <h3>Inglorious</h3>
+        </div>
+        {%set foo3 = 0%}
+        {% for value in category %}
+            {% if value.wellKnown == "Inglorious" %}
+                {%set foo3=  foo3 + 1%}
+                <div class='box'>
+                    <div class='box-title'>
+                        <a href="{{path('movie_movie', {'id': value.id, 'slug': value.title})}}"> {{  value.title }} ({{ value.year }}) </a>
+                    </div>
+                    <div class='box-image'>
+                        <a href="{{path('movie_movie', {'id': value.id, 'slug': value.title }) }}"><img src="{{ asset(['uploads/images/Movies', value.path]|join) }}" height="150" width="225" /></a>
+                    </div>
+                    <div class='box-review'>
+                        <p class="box-country-text">{{ value.country }}</p>
+                        <p class="box-review-text">{{ value.review | truncate(200) }}</p>
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        {%  endfor %}
+        {% if foo3 == 0%}
+            <h3>NO more movies</h3>
+        {%endif%}
+    </div>
+
+    <div class="clear"></div>
+
+
+
+{% endblock %}

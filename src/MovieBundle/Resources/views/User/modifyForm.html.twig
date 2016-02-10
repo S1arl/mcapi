@@ -1,0 +1,46 @@
+{# empty Twig template #}
+{% extends '::base.html.twig'%}
+{% block body %}
+    <div class="A-form">  
+        <h4>Remove locale property</h4>
+        {{ form_start(form) }}   
+        {{ form_row(form.locale)}}
+        {{ form_widget(form.save, {'label': 'Delete'}) }}
+        {{ form_end(form) }}
+    </div>
+    <div class="B-form">
+        <h3>Add locale property</h3>
+        {{ form_start(form2) }}
+        {{form_row(form2.locale) }}
+        {{ form_widget(form2.save, {'label': 'Add'}) }}
+        {{ form_end(form2) }}
+    </div>
+    <div class="C-form">
+        <h3>Remove emotion property</h3>
+        {{ form_start(form3) }}
+        {{ form_row(form3.emotion)}}
+        {{ form_widget(form3.save, {'label': 'Delete'}) }}
+        {{ form_end(form3) }}
+    </div>
+    <div class="D-form">
+        <h3>Add emotion property</h3>
+        {{ form_start(form4) }}
+        {{form_row(form4.emotion) }}
+        {{ form_widget(form4.save, {'label': 'Add'}) }}
+        {{ form_end(form4) }}
+    </div>
+    <div class="E-form">
+        <h3>Remove year property</h3>
+        {{ form_start(form5) }}
+         {{ form_row(form5.year)}}
+        {{ form_widget(form5.save, {'label': 'Delete'}) }}
+        {{ form_end(form5) }}
+    </div>
+    <div class="F-form">
+        <h3>Add year property</h3>
+        {{ form_start(form6) }}
+        {{form_row(form6.year) }}
+        {{ form_widget(form6.save, {'label': 'Add'}) }}
+        {{ form_end(form6) }}
+    </div>
+{% endblock %}

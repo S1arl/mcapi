@@ -1,0 +1,60 @@
+{# empty Twig template #}
+{% extends '::base.html.twig' %}
+
+
+{% block body %} 
+    <div class="categoryForm">
+
+
+        {{ form_start(form) }}  
+        <div class="emotions_homepage">
+            <ul>
+                <li>{{ form_label(form.emotions) }}</li>
+             <li>{{ form_errors(form.emotions)}}</li>
+             <li>{{ form_widget(form.emotions) }}</li>
+            </ul>
+        
+        </div>
+        <div class="year_homepage">
+            <ul>
+             <li>{{ form_label(form.actionYear) }}</li>
+             <li>{{ form_errors(form.actionYear)}}</li>
+            <li> {{form_widget(form.actionYear)}}  </li>
+            </ul>
+            
+        </div>
+        <div class="place_homepage">
+            <ul>
+             <li>{{ form_label(form.ActionPlace) }}</li>
+             <li>{{ form_errors(form.ActionPlace)}}</li>
+             <li>{{form_widget(form.ActionPlace)}}  </li>
+             </ul>
+        
+        </div>
+        <div class="gender_homepage">
+            <ul>
+             <li>{{ form_label(form.gender) }}</li>
+             <li>{{ form_errors(form.gender)}}</li>
+           <li>  {{form_widget(form.gender)}}  </li>
+           </ul>
+        </div>
+        <div class="brainy_homepage">
+           
+                <div class="image_brainy">
+            <img src="{{ asset(['uploads/images/Movies/', brainy]|join) }}" height="150" width="215"/>    
+            </div>
+            
+            <ul>
+             <li>{{ form_label(form.brainy) }}</li>
+             <li>{{ form_errors(form.brainy)}}</li>
+
+             <li>{{form_widget(form.brainy)}}  </li>
+             </ul>
+        </div>    
+        <div class="endForm_homepage">
+            {{ form_widget(form.save, {'label': ' '}) }}
+            {{ form_end(form) }}
+        </div>
+    </div> 
+
+{% endblock %}

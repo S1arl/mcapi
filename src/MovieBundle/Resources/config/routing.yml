@@ -1,0 +1,22 @@
+movie_homepage:
+    path:     /
+    defaults: { _controller: MovieBundle:Movie:index }
+movie_modifyForm:
+    path: /user/modifyForm
+    defaults: { _controller: MovieBundle:User:modifyForm}
+movie_addMovie:
+    path: /user/addMovie 
+    defaults: { _controller: MovieBundle:User:index}
+movie_category:
+    path: /category
+    defaults: { _controller: MovieBundle:Movie:category}
+movie_about:
+    path: /about
+    defaults: { _controller: MovieBundle:Movie:about}
+movie_movie:
+    path: /category/{id}/{slug}
+    defaults: { _controller:MovieBundle:Movie:movie}
+    requirements:
+        page: \d+
+
+

@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+{% block body %}   
+   
+        {{ form_start(form)}} 
+        {{ form_label(form.user) }}
+        {{ form_errors(form.user) }}
+        {{ form_widget(form.user) }}
+ 
+
+        <div class="movie" data-prototype="{% filter escape %}{% include 'MovieBundle:User:prototype.html.twig' with {'form': form.movies.vars.prototype} %}{% endfilter %}"></div>
+
+        <div class="button">
+        {{form_end(form)}}
+     
+        </div>
+        
+ 
+
+{% endblock %}
+

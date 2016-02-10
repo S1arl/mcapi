@@ -1,0 +1,33 @@
+{# empty Twig template #}
+{% extends '::base.html.twig' %}
+{% block body  %}
+ 
+        {% for movie in item  %}
+            <div class="movie-box">
+            <div class="title">
+                <p>{{ movie.title }}</p>
+            </div>
+            <div class="trailer">    
+                <iframe width="350" height="250" src="{{ movie.trailer }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="review">
+                <p>{{movie.review}}</p>
+            </div>
+            </div>
+            <div class="photo-box">
+                <img src="{{ asset(['uploads/images/Movies/', movie.path]|join) }}" height="150" width="215" />
+                <div class="info">
+                <p>{{ movie.country }}
+                    ({{ movie.year }})</p>
+                </div>
+            </div>
+                {%  else %}
+                    <div class="bad-route">
+                    <h3>The movie you are looking for is not existing</h3>
+                    </div>
+        {% endfor %}
+        <div class="clear">
+        </div>
+   
+
+{% endblock %}
