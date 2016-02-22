@@ -102,7 +102,7 @@ body > #container { height: auto; min-height: 100%; }
 /*  CATEGORY  */
 #pagination-preview {position:fixed;left:100px;top:400px;}
 #pagination-next {position:fixed;right:100px;top:400px}
-.head {clear:both;overflow:auto;min-eight:75px;}
+.head {clear:both;overflow:auto;min-height:75px;}
 .head div {float:left;cursor:pointer;padding:0px 5px 0px 5px;}
 
 
