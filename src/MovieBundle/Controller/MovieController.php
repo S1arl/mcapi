@@ -16,7 +16,6 @@ class MovieController extends Controller {
         $actionPlace = $em->getRepository('MovieBundle:ActionPlace')->selectLocale();
         $emotions = $em->getRepository('MovieBundle:Emotion')->selectEmotions();
         $brainy = $em->getRepository('MovieBundle:Movies')->selectBrainy();
-        $scalarEmotion = $em->getRepository('MovieBundle:Emotion')->selectRows();
         
 
 
@@ -32,7 +31,7 @@ class MovieController extends Controller {
             $session->set('brainy', $category->getBrainy());
             return $this->redirectToRoute('movie_category');
         }
-        return $this->render('MovieBundle:Movie:index.html.twig', array('form' => $form->createView(), 'brainy' => $brainy, 'emotionRows' => $scalarEmotion, 'brainy' => $brainy));
+        return $this->render('MovieBundle:Movie:index.html.twig', array('form' => $form->createView(), 'brainy' => $brainy,  'brainy' => $brainy));
     }
 
     public function categoryAction(Request $request) {
